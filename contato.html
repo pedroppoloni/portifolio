@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contato</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        * { transition: background-color 0.4s ease, color 0.4s ease; }
+        body.dark-mode { background-color: #121212; color: #e5e5e5; }
+        body.light-mode { background-color: #f8f9fa; color: #222; }
+        .sidebar.dark-mode { background-color: #1e1e1e; border-color: #444; }
+        .sidebar.light-mode { background-color: #ffffff; border-color: #999; }
+        .sidebar a { color: white; }
+        body.light-mode .sidebar a { color: #ffffff; }
+    </style>
+</head>
+
+<body class="d-flex">
+
+    <div id="sidebar" class="sidebar border-end p-3" style="width: 220px; height: 100vh; position: fixed;">
+        <div class="d-flex flex-column align-items-center">
+           <img src="imagens/euIcon.jpeg" style="width:120px; height:120px; border-radius:50%; object-fit: cover; border:3px solid currentColor;">
+            <p class="mt-2 fw-bold text-center">Pedro Paulo Poloni</p>
+
+            <div class="mt-4 w-100 text-center">
+                <a href="index.html" class="btn btn-dark w-100 mb-2">Home</a>
+                <a href="catalogo.html" class="btn btn-dark w-100 mb-2">Catálogo</a>
+                <a href="contato.html" class="btn btn-dark w-100 mb-2">Contato</a>
+                <a href="sobre.html" class="btn btn-dark w-100 mb-2">Sobre</a>
+            </div>
+        </div>
+    </div>
+
+    <button id="toggleMode" class="btn btn-secondary" style="position: fixed; bottom: 20px; left: 20px;">🌙</button>
+
+    <div class="flex-grow-1" style="margin-left: 220px; padding: 20px;">
+<h1 class="mb-4">Contato</h1>
+<div class="d-flex align-items-center mb-3">
+    <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico" 
+         style="width:32px; height:32px; margin-right:10px;">
+    <a class="fs-5">
+        pedroppoloni@gmail.com
+    </a>
+</div>
+<div class="d-flex align-items-center mb-3">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
+         style="width:32px; height:32px; margin-right:10px;">
+    <a href="https://www.linkedin.com/in/pedro-paulo-poloni/" target="_blank" class="fs-5">
+        linkedin.com/in/pedro-paulo-poloni
+    </a>
+</div>
+<div class="d-flex align-items-center mb-3">
+    <img src="https://static.itch.io/images/itchio-textless-black.svg" 
+         style="width:32px; height:32px; margin-right:10px; filter: hue-rotate(-50deg) saturate(6);">
+    <a href="https://pedropoloni.itch.io" target="_blank" class="fs-5">
+        pedropoloni.itch.io
+    </a>
+</div>
+
+    </div>
+
+    <script>
+        const body = document.body;
+        const sidebar = document.getElementById("sidebar");
+        const saved = localStorage.getItem("mode");
+        if (saved) { body.classList.add(saved); sidebar.classList.add(saved); }
+        else { body.classList.add("dark-mode"); sidebar.classList.add("dark-mode"); }
+
+        document.getElementById("toggleMode").addEventListener("click", () => {
+            if (body.classList.contains("dark-mode")) {
+                body.classList.replace("dark-mode", "light-mode");
+                sidebar.classList.replace("dark-mode", "light-mode");
+                localStorage.setItem("mode", "light-mode");
+            } else {
+                body.classList.replace("light-mode", "dark-mode");
+                sidebar.classList.replace("light-mode", "dark-mode");
+                localStorage.setItem("mode", "dark-mode");
+            }
+        });
+    </script>
+</body>
+</html>

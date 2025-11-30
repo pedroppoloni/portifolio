@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Catálogo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+        body.dark-mode { background-color: #121212; color: #e5e5e5; }
+        body.light-mode { background-color: #f8f9fa; color: #222; }
+        .sidebar.dark-mode { background-color: #1e1e1e; border-color: #444; }
+        .sidebar.light-mode { background-color: #ffffff; border-color: #999; }
+        .sidebar a { color: white; }
+        body.light-mode .sidebar a { color: #ffffff; }
+    </style>
+</head>
+
+<body class="d-flex">
+
+    <div id="sidebar" class="sidebar border-end p-3" style="width: 220px; height: 100vh; position: fixed;">
+        <div class="d-flex flex-column align-items-center">
+            <img src="imagens/euIcon.jpeg" style="width:120px; height:120px; border-radius:50%; object-fit: cover; border:3px solid currentColor;">
+            <p class="mt-2 fw-bold text-center">Pedro Paulo Poloni</p>
+
+            <div class="mt-4 w-100 text-center">
+                <a href="index.html" class="btn btn-dark w-100 mb-2">Home</a>
+                <a href="catalogo.html" class="btn btn-dark w-100 mb-2">Catálogo</a>
+                <a href="contato.html" class="btn btn-dark w-100 mb-2">Contato</a>
+                <a href="sobre.html" class="btn btn-dark w-100 mb-2">Sobre</a>
+            </div>
+        </div>
+    </div>
+
+    <button id="toggleMode" class="btn btn-secondary" style="position: fixed; bottom: 20px; left: 20px;">🌙</button>
+
+    <div class="flex-grow-1" style="margin-left: 220px; padding: 20px;">
+        <h1 class="mb-4">Catálogo</h1>
+
+        <div class="p-3 mb-4" style="background-color: #3a993e; border-radius: 8px;">
+            <div class="row">
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                    <img src="imagens/dssIcon.png" style="width: 75%; height: auto;">
+                </div>
+                <div class="col-md-8">
+                    <h2>Draw, Shoot, Survive!</h2>
+                    <p class="fw-semibold">Game Design & Arte Final</p>
+                    <p class="fs-5 fw-semibold">Um híbrido dos gêneros Bullet Heaven e Deckbuilder, que explora a fusão de maneira única no mercado</p>
+                    <a href="https://sappjunior.itch.io/draw-shoot-survive" target="_blank">
+                        <img src="https://static.itch.io/images/itchio-textless-white.svg" style="width:40px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-3 mb-4" style="background-color: #6073b1; border-radius: 8px;">
+            <div class="row">
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                       <img src="imagens/astroSiege.png" style="width: 75%; height: auto;">
+                </div>
+                <div class="col-md-8">
+                    <h2>Astro Siege</h2>
+                    <p class="fw-semibold">Game Design</p>
+                    <p class="fs-5 fw-semibold">Roguelike Tower Defense onde o jogador deve posicionar e aprimorar as defesas naturais de um planeta em constante movimento para proteger-se de ameaças vindas de todas as direções</p>
+                    <a href="https://otavioc.itch.io/astro-siege" target="_blank">
+                        <img src="https://static.itch.io/images/itchio-textless-white.svg" style="width:40px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-3 mb-4" style="background-color: #7f3f9b; border-radius: 8px;">
+            <div class="row">
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                       <img src="imagens/frankIcon.png" style="width: 75%; height: auto;">
+                </div>
+                <div class="col-md-8">
+                    <h2>Frankenstein is the Name of the Shopkeeper</h2>
+                    <p class="fw-semibold">Game Design & Arte Final</p>
+                    <p class="fs-5 fw-semibold">Um Simulador de Loja cômico onde o jogador junta peças de vários monstros clássicos de Halloween para formar criaturas estranhas a pedido de seus clientes</p>
+                    <a href="https://pedropoloni.itch.io/frankensteinisthenameoftheshopkeeper" target="_blank">
+                        <img src="https://static.itch.io/images/itchio-textless-white.svg" style="width:40px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-3 mb-4" style="background-color: #c5891a; border-radius: 8px;">
+            <div class="row">
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                       <img src="imagens/lassoIcon.png" style="width: 75%; height: auto;">
+                </div>
+                <div class="col-md-8">
+                    <h2>Lasso Loopers</h2>
+                    <p class="fw-semibold">Game Design & Arte Final</p>
+                    <p class="fs-5 fw-semibold">Clique e segure o botão do mouse para capturar os animais fugitivos e organizá-los em seus cercados antes do tempo se esgotar</p>
+                    <a href="https://sappjunior.itch.io/lasso-loopers" target="_blank">
+                        <img src="https://static.itch.io/images/itchio-textless-white.svg" style="width:40px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const body = document.body;
+        const sidebar = document.getElementById("sidebar");
+        const saved = localStorage.getItem("mode");
+        if (saved) { body.classList.add(saved); sidebar.classList.add(saved); }
+        else { body.classList.add("dark-mode"); sidebar.classList.add("dark-mode"); }
+
+        document.getElementById("toggleMode").addEventListener("click", () => {
+            if (body.classList.contains("dark-mode")) {
+                body.classList.replace("dark-mode", "light-mode");
+                sidebar.classList.replace("dark-mode", "light-mode");
+                localStorage.setItem("mode", "light-mode");
+            } else {
+                body.classList.replace("light-mode", "dark-mode");
+                sidebar.classList.replace("light-mode", "dark-mode");
+                localStorage.setItem("mode", "dark-mode");
+            }
+        });
+    </script>
+
+</body>
+</html>
